@@ -18,10 +18,7 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # Copy the JAR file from the build stage
-COPY --from=build /app/target/java-hello-world-1.0-SNAPSHOT.jar app.jar
-
-# Expose the port if the application uses any specific port (optional)
-# EXPOSE 8080
+COPY --from=build /app/target/jb-hello-world-maven-0.2.0.jar app.jar
 
 # Run the application
 CMD ["java", "-jar", "app.jar"]
